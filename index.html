@@ -3,12 +3,29 @@ layout: default
 ---
 
 <div class="home">
-
+<img src="images/maliit.png" alt="Maliit" />
+<p>Maliit provides a flexible and cross-platform input method framework for mobile and embedded text input, including a virtual keyboard. It has a plugin-based client-server architecture where applications act as clients and communicate with the Maliit server via input context plugins.</p>
+<img class="right" width="240" src="images/Maliit_N9.png" alt="Maliit's virtual MeeGo Keyboard on a Nokia N9"/>
+<p>Maliit is an open source framework (LGPL 2) with <a href="/plugins/">open source plugins</a> (BSD). There are also proprietary plugins. It runs on most GNU/Linux distributions.</p>
+<p>See some <a href="/screenshots/">Screenshots, photos and videos</a>, read <a href="/reviews/">reviews</a> and <a href="/contact/">Contact</a> us.</p>
+<p><a href="http://www.ohloh.net/p/maliit">Maliit's Ohloh.net page</a> shows our development history.</p>
+<h2>Goals</h2>
+<h3>Input method framework</h3>
+<p>This includes support for traditional input methods such as hardware and virtual keyboards. More exotic input methods should also be possible, such as handwriting recognition and voice input, and special purpose input methods such as date/time pickers, tag clouds, etc.</p>
+<h3>Core input methods</h3>
+<p>The default set of input methods should demonstrate the core capabilities of the framework and provide a good user experience that device manufacturers and integrators can use easily.</p>
+<h3>Third-party developers</h3>
+<p>It should be easy to customize existing input methods or develop powerful new input methods, whether for profit, research or fun.</p>
+<h3>Community</h3>
+<p>We welcome and encourage employees from different companies, freelancers, members of academia, hackers and volunteers.</p>
+<h3>Collaboration hub</h3>
+<p>Become a central collaboration hub for everything regarding mobile text input.</p>
+<h2>News</h2>
   <div class="posts">
     {% for post in paginator.posts %}
       <div class="post py3">
         <p class="post-meta">{{ post.date | date: site.date_format }}</p>
-        <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="post-title">{{ post.title }}</h3></a>
         <p class="post-summary">
           {% if post.summary %}
             {{ post.summary }}
