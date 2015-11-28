@@ -27,9 +27,9 @@ These plugins are not distributed with the Maliit releases, but they can be used
 
 [Sailfish OS](https://sailfishos.org/)
 
-### webos-keyboard
+### LuneOS Keyboard
 
-[See webos-keyboard GitHub page](https://github.com/webOS-ports/webos-keyboard)
+[See LuneOS Keyboard GitHub page](https://github.com/webOS-ports/webos-keyboard)
 
 ## Outdated plugins
 
