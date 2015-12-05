@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Maliit 0.9.1 Release
+title: Maliit 0.99.1 Release
 date: 2015-11-14 14:14
 categories: release
 ---
