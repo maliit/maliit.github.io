@@ -8,7 +8,7 @@ url:         "http://maliit.github.io"
 date_format: "%b %-d, %Y"
 
 # Google services
-google_analytics: "UA-69758830-1"
+google_analytics:
 google_verification:
 
 # Optional features
