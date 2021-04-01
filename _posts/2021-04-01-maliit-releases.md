@@ -59,7 +59,7 @@ Visit [maliit.github.io](/) for more information about the project.
 
 Maliit's website could benefit from a little love. Some of the information is
 no longer up to date.
-If anybody out there has some time to spare to fit it up a little bit, hop to
+If anybody out there has some time to spare to fix it up a little bit, hop to
 https://github.com/maliit/maliit.github.io and send us a pull request.
 
 Should anybody with some influence at Canonical happen to read this announcement:
