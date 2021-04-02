@@ -4,7 +4,7 @@ email:       janarne@gmail.com
 author:      Jan Arne Petersen
 description: "Maliit provides a flexible and cross-platform input method framework"
 baseurl:     ""
-url:         "http://maliit.github.io"
+url:         "https://maliit.github.io"
 date_format: "%b %-d, %Y"
 
 # Google services
