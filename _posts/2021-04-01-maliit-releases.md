@@ -1,21 +1,23 @@
 ---
 layout: post
-title: Maliit Framework 1.0.0 and Maliit Keyboard 2.0.0 Releases
-date: 2021-04-01 14:00
+title: Maliit 2.0.0 Release
+date: 2021-04-02 14:00
 categories: release
 ---
 
-No April Fool's joke: Today we're releasing Maliit Framework 1.0.0 and Maliit Keyboard 2.0.0.
+After quite some while we are happy to release Maliit 2. Thanks for all the support to this release.
 
-## Maliit Framework 1.0
+## Maliit Framework
 
 Not much has happened since our 0.99.2 release. [Marius Gripsgard](https://github.com/mariogrip)
 and [Andrés B.S.](https://github.com/surprized) fixed a few things around pkgconfig.
-At the stable state Maliit is, we think it's fair to assume that the next big change
+At the stable state Maliit is, we think it's fair to assume that the next big changes
 will be the eventual port from Qt 5 to Qt 6 (not that we mind getting suprised with
-pull requests adding features before that), so let's just call the current state 1.0.0.
+pull requests adding features before that). We will also look at supporting new Wayland Input
+Method protocols See the
+[Wayland Protocols - Input Method Hub](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/issues/39).
 
-## Maliit Keyboard 2.0.0
+## Maliit Keyboard
 
 This release is a bit more exciting. Our last Keyboard release was 0.99.1 as part
 of the maliit-plugins bundle way back in 2015.
@@ -27,7 +29,6 @@ From 2017 until somewhat recently, [Jan Arne](https://github.com/jpetersen) work
 much by himself on improvements such as removing deprecated Ubuntu Touch dependencies,
 porting the code from QMake to CMake, and so on. More recently the good folks at KDE
 looked for a new on-screen keyboard, though, and send in a few pull requests.
-Overall, the amount of changes justifies the jump directly to 2.0.
 
 With KDE and their Plasma project moving to Maliit, Linux distributions want proper
 releases of dependencies as well, so here it is.
@@ -35,9 +36,9 @@ releases of dependencies as well, so here it is.
 ## Where can I get it?
 
 * framework:
-  [maliit-framework-1.0.0.tar.bz2](/download/maliit-framework-1.0.0.tar.bz2)
+  [maliit-framework-2.0.0.tar.gz](https://github.com/maliit/framework/archive/refs/tags/2.0.0.tar.gz)
 * keyboard:
-  [maliit-plugins-2.0.0.tar.bz2](/download/maliit-keyboard-2.0.0.tar.bz2)
+  [maliit-keyboard-2.0.0.tar.gz](https://github.com/maliit/keyboard/archive/refs/tags/2.0.0.tar.gz)
 
 ## What is it?
 
