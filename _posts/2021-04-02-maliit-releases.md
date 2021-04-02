@@ -2,7 +2,7 @@
 layout: post
 title: Maliit 2.0.0 Release
 date: 2021-04-02 14:00
-categories: release
+categories: release news
 ---
 
 After quite some while we are happy to release Maliit 2. Thanks for all the support to this release.
