@@ -70,7 +70,7 @@ Visit [maliit.github.io](/) for more information about the project.
 Maliit's website could benefit from a little love. Some of the information is
 no longer up to date.
 If anybody out there has some time to spare to fix it up a little bit, hop to
-https://github.com/maliit/maliit.github.io and send us a pull request.
+[github.com/maliit/maliit.github.io](https://github.com/maliit/maliit.github.io) and send us a pull request.
 
 Should anybody with some influence at Canonical happen to read this announcement:
 We have nothing against the LGPL 3.0 but we'd like some consistency in our
@@ -83,4 +83,3 @@ and Keyboard. We're aware of them and we totally support the right of anybody
 to fork all Free Software code but not always is new code in those forks specific
 to custom implementations. A helping hand or two that ports improvements useful
 for our upstream code would, again, be very appreciated.
-
