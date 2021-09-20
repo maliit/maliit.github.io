@@ -9,7 +9,7 @@ categories: release news
 
 - Fix usage of zwp_input_method_v1::content_purpose_digits
 - Update input method area when activation is lost
-- Load compose inputcontext plugin for physical keyboarad handling
+- Load compose inputcontext plugin for physical keyboard handling
 - Stop client crashing when QGuiApplication::focusObject is null
 - Clean up FindGIO.cmake to allow working with older cmake.
 - Only allow focus removal from input items.
