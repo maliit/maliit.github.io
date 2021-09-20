@@ -58,7 +58,7 @@ source framework (LGPL 2.1 or later) and an open source on-screen keyboard (LGPL
 
 Maliit is being used by [KDE for Plasma](https://blog.martin-graesslin.com/blog/2021/03/using-maliit-keyboard-in-a-plasma-wayland-session/),
 [LG for webOS](https://github.com/webosose/maliit-framework-webos),
-[UBPorts](https://github.com/ubports/keyboard-component),
+[Ubuntu Touch](https://gitlab.com/ubports/core/lomiri-keyboard),
 [LuneOS](https://github.com/webOS-ports/webos-keyboard),
 [Sailfish OS](https://git.sailfishos.org/mer-core/maliit-framework),
 and likely others.
