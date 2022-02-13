@@ -8,8 +8,8 @@ title: Contact
 Create issues at GitHub:
 
 * [Framework](https://github.com/maliit/framework/issues)
-* [Plugins](https://github.com/maliit/plugins/issues)
+* [Keyboard](https://github.com/maliit/keyboard/issues)
 
-## IRC
+## Matrix
 
-Visit us in #maliit at freenode.net
+Visit us in [#maliit:matrix.org](https://matrix.to/#/#maliit:matrix.org)
