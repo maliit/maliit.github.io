@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Maliit 2.2.2 Release
+title: Maliit 2.2.1 Release
 date: 2022-04-05 19:02
 categories: release news
 ---
@@ -11,7 +11,8 @@ categories: release news
 
 ## Maliit keyboard
 
-- Remove the legacy CC-BY 3.0 licensed artwork.
+- Fix install issue in 2.2.1 tarball
+- Remove the legacy CC-BY 3.0 licensed artwork
 - Simplify ActionsToolbar by removing need for states
 - Visual spacing improvements for Keyboard and WordRibbon
 - Add a visible separator between word suggestions
@@ -33,7 +34,7 @@ categories: release news
 * framework:
   [maliit-framework-2.2.1.tar.gz](https://github.com/maliit/framework/archive/refs/tags/2.2.1.tar.gz)
 * keyboard:
-  [maliit-keyboard-2.2.1.tar.gz](https://github.com/maliit/keyboard/archive/refs/tags/2.2.1.tar.gz)
+  [maliit-keyboard-2.2.1.1.tar.gz](https://github.com/maliit/keyboard/archive/refs/tags/2.2.1.1.tar.gz)
 
 ## What is it?
 
