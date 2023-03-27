@@ -7,10 +7,10 @@ If you just want to install Maliit, you will probably want to use a prebuilt pac
 
 Maliit is available in the following major Linux distributions:
 
-* Ubuntu 22.10: maliit-framework maliit-keyboard
-* Fedora 36, 37, 38: maliit-framework maliit-keyboard
-* openSUSE Tumbleweed via M17N repo: maliit-framework maliit-keyboard2
-* Arch Linux: maliit-framework maliit-keyboard
+* Ubuntu 22.10: `maliit-framework maliit-keyboard`
+* Fedora 36, 37, 38: `maliit-framework maliit-keyboard`
+* openSUSE Tumbleweed via M17N repo: `maliit-framework maliit-keyboard2`
+* Arch Linux: `maliit-framework maliit-keyboard`
 
 ## Build Dependencies
 
