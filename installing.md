@@ -34,9 +34,11 @@ cd framework/
 cmake -B build/ -D CMAKE_INSTALL_PREFIX=/usr
 cmake --build build/
 sudo cmake --install build/
+```
 
 Remember to set `CMAKE_INSTALL_PREFIX`. This way, when you attempt to compile the keyboard component, it will automatically pick the framework build as a dependency.
 
+```bash
 cd ../
 cd keyboard/
 cmake -B build/ -D CMAKE_INSTALL_PREFIX=/usr
