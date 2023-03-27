@@ -90,6 +90,15 @@ And you will need to append `$HOME/maliit/usr/share/` to the system's `XDG_DATA_
 #!/usr/bin/env sh
 export XDG_DATA_DIRS=/home/yourusername/maliit/usr/share:$XDG_DATA_DIRS
 ```
+
+#### Debugging
+
+You can manually run the `.desktop` file that runs maliit (either `/usr/share/applications/com.github.maliit.keyboard.desktop` or `$HOME/maliit/usr/share/applications/com.github.maliit.keyboard.desktop`) with a terminal application such as `kioclient exec`.
+
+Setting `Terminal=true` in its `.desktop` file allows you to run maliit within a contained process that is killed when the terminal is closed, instead of having it run indefinitely in the background.
+
+`QT_DEBUG_PLUGINS=1` can be used to verify that maliit is using the correct QML plugins.
+
 ## Running on Wayland
 
 When maliit is run on Wayland, it is expected that only `maliit-keyboard` is used. `maliit-server` is not used at all.
