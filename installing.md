@@ -75,7 +75,7 @@ cmake --build build/
 cmake --install build/
 
 cd $HOME/maliit/usr/share/glib-2.0/schemas/
-glib-compile-schemas org.maliit.keyboard.maliit.gschema.xml
+glib-compile-schemas .
 ```
 
 You'll need to edit `$HOME/maliit/usr/share/applications/com.github.maliit.keyboard.desktop` and change the `Exec=` line to contain the following in order for maliit to find its libraries:
