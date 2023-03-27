@@ -44,6 +44,13 @@ cmake --build build/
 sudo cmake --install build/
 ```
 
+If your system is not based on GTK, for instance Plasma, `glib-compile-schemas` might not run automatically. In this case you will need to run it manually:
+
+```bash
+cd /usr/share/glib-2.0/schemas
+sudo glib-compile-schemas .
+```
+
 ### In the home folder
 
 Alternatively, you may want to install maliit in your home for local development, especially if you are in a restricted environment where you cannot install files to your host root (e.g. immutable distributions).
