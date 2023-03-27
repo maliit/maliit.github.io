@@ -90,3 +90,12 @@ And you will need to append `$HOME/maliit/usr/share/` to the system's `XDG_DATA_
 #!/usr/bin/env sh
 export XDG_DATA_DIRS=/home/yourusername/maliit/usr/share:$XDG_DATA_DIRS
 ```
+## Running on Wayland
+
+When maliit is run on Wayland, it is expected that only `maliit-keyboard` is used. `maliit-server` is not used at all.
+
+### Plasma Wayland
+
+On Plasma Wayland, after installing maliit via package manager or building from source, you should see a new "Maliit" option under System Settings > Input Devices > Virtual Keyboard. After enabling it, you should see a new icon on your tray to toggle it on or off.
+
+Internally, Plasma's System Settings just checks for a valid `.desktop` file in `XDG_DATA_DIRS` containing the `X-KDE-Wayland-VirtualKeyboard=true` key.
