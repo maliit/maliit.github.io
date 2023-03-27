@@ -3,144 +3,108 @@ title: Installing
 layout: page
 ---
 
-__Old information from [maliit.org](https://web.archive.org/web/20111031073411/http://wiki.maliit.org/Documentation/Installing) Needs to be updated__
+If you just want to install Maliit, you will probably want to use a prebuilt package for your system.
 
-If you just want to use Maliit or develop third party plugins, we recommend using the provided packages. If you want to develop on Maliit itself, we recommend installing from source.
+Maliit is available in the following major Linux distributions:
 
-When you have installed, go to Documentation/Running
+* Ubuntu 22.10: `maliit-framework maliit-keyboard`
+* Fedora 36, 37, 38: `maliit-framework maliit-keyboard`
+* openSUSE Tumbleweed via M17N repo: `maliit-framework maliit-keyboard2`
+* Arch Linux: `maliit-framework maliit-keyboard`
 
-## From source code (all GNU/Linux)
+## Build Dependencies
 
-Grab the source source code from git:
+openSUSE:
+```bash
+sudo zypper install git cmake gcc wayland-protocols-devel doxygen 'cmake(Qt5Gui)' 'cmake(Qt5Quick)' 'cmake(Qt5DBus)' 'cmake(Qt5WaylandClient)' 'cmake(Qt5XkbCommonSupport)' 'cmake(Qt5QuickControls2)' 'cmake(Qt5Multimedia)' 'cmake(Qt5Feedback)' libqt5-qtwayland-private-headers-devel anthy-devel libpinyin-devel libchewing-devel libpresage-devel hunspell-devel glib2-tools
+```
 
-* Maliit framework:
-{% highlight bash %}
-git clone git@gitorious.org:maliit/maliit-framework.git
-{% endhighlight %}
+## Building from source
 
-* Maliit plugins (virtual keyboards etc.):
-{% highlight bash %}
-git clone git@gitorious.org:maliit/maliit-plugins.git
-{% endhighlight %}
+### In the host root
 
-The installation order is
-* maliit-framework
-* maliit-plugins
+The easiest way to build and install maliit from source is by installing it as root.
+Make sure you don't have maliit installed via a package from your package manager.
 
-Maliit uses the qmake build system. So, to do a standard build and install, do:
+```bash
+git clone https://github.com/maliit/framework.git
+git clone https://github.com/maliit/keyboard.git
 
-{% highlight bash %}
-qmake
-make
-make install
-{% endhighlight %}
+cd framework/
+cmake -B build/ -D CMAKE_INSTALL_PREFIX=/usr
+cmake --build build/
+sudo cmake --install build/
+```
 
-Run qmake HELP=1 to get more information about build options.
+Remember to set `CMAKE_INSTALL_PREFIX`. This way, when you attempt to compile the keyboard component, it will automatically pick the framework build as a dependency.
 
-__Dependencies__
+```bash
+cd ../
+cd keyboard/
+cmake -B build/ -D CMAKE_INSTALL_PREFIX=/usr
+cmake --build build/
+sudo cmake --install build/
+```
 
-All components have a hard dependency on Qt 4.7
+If your system is not based on GTK, for instance Plasma, `glib-compile-schemas` might not run automatically. In this case you will need to run it manually:
 
-## From source code (Windows)
+```bash
+cd /usr/share/glib-2.0/schemas
+sudo glib-compile-schemas .
+```
 
-Note: Windows support for Maliit is very experimental. Loading the IM plugins inside Maliit Server currently crashes: MALIIT#111
+### In the home folder
 
-These instructions require Maliit 0.90.1 or newer
+Alternatively, you may want to install maliit in your home for local development, especially if you are in a restricted environment where you cannot install files to your host root (e.g. immutable distributions).
 
-### Prerequisites
+This method requires some additional tasks for it to work.
 
-* Qt SDK 1.1+ (recommended) or Qt 4.7+ Mingw libraries. Download: http://qt.nokia.com/downloads
-* git and sed/tr/cat. Download: http://code.google.com/p/msysgit/downloads/list
-* pkg-config. Download: http://www.gtk.org/download/win32.php (depends on gettext-runtime and glib)
+```bash
+git clone https://github.com/maliit/framework.git
+git clone https://github.com/maliit/keyboard.git
 
-### maliit-framework
-* Make sure that all the prerequisites exist in the PATH.
-* Use the following arguments to qmake:
-CONFIG+=disable-gconf CONFIG+=disable-dbus CONFIG+=nosdk CONFIG+=nodoc CONFIG+=notests PREFIX=C:/Maliit LIBDIR=C:/Maliit/bin
-* Do qmake, make, make install
+cd framework/
+cmake -B build/ -D CMAKE_INSTALL_PREFIX=$HOME/maliit/usr
+cmake --build build/
+cmake --install build/
 
-### maliit-plugins
-* Make sure that all the prerequisites exist in the PATH.
-* Make sure that PKG_CONFIG_PATH includes C:\Maliit\bin\pkgconfig (to find maliit-framework)
-  Use the following arguments to qmake:
-  CONFIG+=notests PREFIX=C:/Maliit LIBDIR=C:/Maliit/bin
-* Do qmake, make, make install
+cd ../
+cd keyboard/
+cmake -B build/ -D CMAKE_INSTALL_PREFIX=$HOME/maliit/usr
+cmake --build build/
+cmake --install build/
 
-###Testing
+cd $HOME/maliit/usr/share/glib-2.0/schemas/
+glib-compile-schemas .
+```
 
-After having successfully built and installed both maliit-framework and plugins, you should now be able to run the provided example applications from C:\Maliit\bin, assuming the Qt libraries you built against are available in PATH:
+You'll need to edit `$HOME/maliit/usr/share/applications/com.github.maliit.keyboard.desktop` and change the `Exec=` line to contain the following in order for maliit to find its libraries:
 
-{% highlight bash %}
-cd C:\Maliit\bin
-maliit-exampleapp-plainqt.exe
-maliit-keyboard-viewer.exe
-{% endhighlight %}
+```ini
+Exec=LD_LIBRARY_PATH=$HOME/maliit/usr/lib64/ maliit-keyboard
+```
 
-## Official packages
+And you will need to append `$HOME/maliit/usr/share/` to the system's `XDG_DATA_DIRS` environment variable so that your environment is able to find the keyboard. The easiest way to achieve this is by creating a file called `/etc/profile.d/maliit.sh` with the following contents:
 
-Note: Packaging is ongoing work.
+```bash
+#!/usr/bin/env sh
+export XDG_DATA_DIRS=/home/yourusername/maliit/usr/share:$XDG_DATA_DIRS
+```
 
-###Ubuntu
+#### Debugging
 
-The Maliit Input Methods are not yet in any official Ubuntu repository. However, the packages are available through Launchpad. Daily builds of Maliit packages are in the maliit-team launchpad PPA.
+You can manually run the `.desktop` file that runs maliit (either `/usr/share/applications/com.github.maliit.keyboard.desktop` or `$HOME/maliit/usr/share/applications/com.github.maliit.keyboard.desktop`) with a terminal application such as `kioclient exec`.
 
-To install the packages, you will need to add the maliit-team's PPA to your system's software sources. Detailed instructions on how to correctly add the PPA to your current Ubuntu distribution can be found on the maliit-team daily PPA Launchpad page under the "Adding this PPA to your system" section.
+Setting `Terminal=true` in its `.desktop` file allows you to run maliit within a contained process that is killed when the terminal is closed, instead of having it run indefinitely in the background.
 
-After addition and repository update, proceed with installation:
+`QT_DEBUG_PLUGINS=1` can be used to verify that maliit is using the correct QML plugins.
 
-{% highlight bash %}
-sudo apt-get install maliit-framework maliit-plugins
-{% endhighlight %}
+## Running on Wayland
 
-Or use any other graphical Ubuntu package installer to install the maliit-framework and maliit-plugins packages.
+When maliit is run on Wayland, it is expected that only `maliit-keyboard` is used. `maliit-server` is not used at all.
 
-Proceed to Documentation/Running
+### Plasma Wayland
 
-###Fedora
+On Plasma Wayland, after installing maliit via package manager or building from source, you should see a new "Maliit" option under System Settings > Input Devices > Virtual Keyboard. After enabling it, you should see a new icon on your tray to toggle it on or off.
 
-Maliit packages are provided using Open Build Service (OBS) in project M17N:Maliit
-
-To install:
-
-* Download the appropriate .repo file from http://download.opensuse.org/repositories/M17N:/Maliit/ and save it as /etc/yum.repos.d/maliit.repo.
-* Install the packages maliit-framework and "maliit-plugins with the Add/Remove Software application
-
-Proceed to Documentation/Running
-
-###openSUSE
-
-Maliit packages are provided using Open Build Service (OBS) in project M17N:Maliit
-
-To install:
-
-* Download the appropriate files from http://download.opensuse.org/repositories/M17N:/Maliit/
-* Install the packages maliit-framework and "maliit-plugins with the Add/Remove Software application
-
-###Arch Linux
-Packages (stable and git) are available in AUR
-
-To install:
-
-{%highlight bash %}
-yaourt -S maliit-framework maliit-plugins
-{% endhighlight %}
-Substitute yaourt with your favorite AUR helper.
-
-Proceed to Documentation/Running
-
-## Unofficial / Community / Third-party packages
-
-### Debian 5 & 6
-You might be able to use the packages above. Let us know to which extend you succeed with this.
-
-### Meego
-Covered on http://wiki.meego.com/Maliit/Installing
-
-### Maemo 5 (Fremantle)
-This is a rough tech demo and as such, not that useful. Note: built in legacy-mode
-
-* Enable the Maemo's extras-devel repo (WARNING: On your own risk, can brick your device)
-* Install meego-keyboard-quick (needs extras-devel),
-* Install meego-im-demos
-
-Proceed to Documentation/Running
+Internally, Plasma's System Settings just checks for a valid `.desktop` file in `XDG_DATA_DIRS` containing the `X-KDE-Wayland-VirtualKeyboard=true` key.
